@@ -46,7 +46,9 @@ function Draggable({ children }) {
     dragBoundary.current.right = positionReference.right;
     dragBoundary.current.top = positionReference.top;
     dragBoundary.current.bottom = positionReference.bottom;
-  }, []);
+
+    return () => throttledHandleDragging.cancel();
+  }, [throttledHandleDragging]);
 
   function handleDraggingStart(event) {
     const positionReference = event.currentTarget.getBoundingClientRect();
