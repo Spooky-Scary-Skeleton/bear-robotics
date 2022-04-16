@@ -4,15 +4,15 @@ const StyledDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 10%;
-  height: 10%;
+  width: 100%;
+  height: 100%;
   border: 1px solid black;
 `;
 
 function Box() {
   return (
     <StyledDiv>
-      <div>box</div>
+      <div>Box</div>
     </StyledDiv>
   );
 }
