@@ -4,14 +4,14 @@ import constants from "./utils/constants";
 import debounce from "./utils/debounce";
 import throttle from "./utils/throttle";
 
-const BoundaryDiv = styled.div`
+const Boundary = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
   border: ${constants.BOUNDARY_BORDER_WIDTH}px solid black;
 `;
 
-const WrapperDiv = styled.div.attrs((props) => ({
+const Wrapper = styled.div.attrs((props) => ({
   style: {
     top: props.top + "px",
     left: props.left + "px",
@@ -132,8 +132,8 @@ function Draggable({ children }) {
   return (
     <>
       Draggable Area
-      <BoundaryDiv ref={containerRef}>
-        <WrapperDiv
+      <Boundary ref={containerRef}>
+        <Wrapper
           top={boxPosition.top}
           left={boxPosition.left}
           onMouseDown={handleDraggingStart}
@@ -142,8 +142,8 @@ function Draggable({ children }) {
           onMouseLeave={handleDraggingEnd}
         >
           {children}
-        </WrapperDiv>
-      </BoundaryDiv>
+        </Wrapper>
+      </Boundary>
     </>
   );
 }
