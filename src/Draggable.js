@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
 import constants from "./utils/constants";
+import debounce from "./utils/debounce";
 import throttle from "./utils/throttle";
 
 const BoundaryDiv = styled.div`
@@ -39,16 +40,31 @@ function Draggable({ children }) {
     [memoizedHandleDragging]
   );
 
+  useEffect(
+    () => () => throttledHandleDragging.cancel(),
+    [throttledHandleDragging]
+  );
   useEffect(() => {
-    const positionReference = containerRef.current.getBoundingClientRect();
+    function handleResize() {
+      const positionReference = containerRef.current.getBoundingClientRect();
 
-    dragBoundary.current.left = positionReference.left;
-    dragBoundary.current.right = positionReference.right;
-    dragBoundary.current.top = positionReference.top;
-    dragBoundary.current.bottom = positionReference.bottom;
+      dragBoundary.current.left = positionReference.left;
+      dragBoundary.current.right = positionReference.right;
+      dragBoundary.current.top = positionReference.top;
+      dragBoundary.current.bottom = positionReference.bottom;
+    }
 
-    return () => throttledHandleDragging.cancel();
-  }, [throttledHandleDragging]);
+    handleResize();
+
+    const debounced = debounce(handleResize);
+
+    window.addEventListener("resize", debounced);
+
+    return () => {
+      debounced.cancel();
+      window.removeEventListener("resize", debounced);
+    };
+  }, []);
 
   function handleDraggingStart(event) {
     const positionReference = event.currentTarget.getBoundingClientRect();
