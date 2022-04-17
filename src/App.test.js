@@ -1,8 +1,12 @@
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-test("renders learn react link", () => {
+test("App renders Draggable and Box", () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  const DraggableEl = screen.getByText("Draggable Area");
+  const BoxEl = screen.getByText("Box");
+
+  expect(DraggableEl).toBeInTheDocument();
+  expect(BoxEl).toBeInTheDocument();
 });
