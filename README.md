@@ -6,6 +6,16 @@ This is Dan Kim's Bear Robotics frontend position conding test Submission.
 ## Project Setup
 Basic project setup was done with Create React App v5.0.1
 
+## Run
+Please run below script in terminal to run the app.
+
+    npm start
+
+## Test
+Please run below script in terminal to see the test code result.
+
+    npm test
+
 ## Misc
 Although I read that there'll be bonus points for using Typescript, unfortunately, I have no experience with Typescript yet.
 
