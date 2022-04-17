@@ -1,20 +1,20 @@
 # Bear Robotics Frontend Position assignment
-This is Dan Kim's Bear Robotics frontend position conding test Submission.
+This is Dan Kim's Bear Robotics frontend position coding test Submission.
 
 ## Contact
 danbsns@gmail.com
 
 ## Project Setup
-Basic project setup was done with Create React App v5.0.1
+The Basic project setup was done with Create React App v5.0.1.
 
 ## Run
-Please run below script in terminal to run the app.
+Please run the below script in the terminal to run the app.
 
     npm install
     npm start
 
 ## Test
-Please run below script in terminal to see the test code result.
+Please run the below script in the terminal to see the test code result.
 
     npm test
 
