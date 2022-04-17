@@ -15,8 +15,7 @@ describe("Draggable", () => {
   });
 
   afterEach(() => {
-    jest.restoreAllMocks();
-    jest.clearAllMocks();
+    jest.clearAllMocks().restoreAllMocks();
   });
 
   test("Should Calculate bounding rect when child is clicked", () => {
@@ -36,11 +35,11 @@ describe("Draggable", () => {
   });
 
   test("Should only be dragged when it is both clicked and moved", () => {
-    const child = <div>test</div>;
+    const child = <div>child</div>;
 
     render(<Draggable>{child}</Draggable>);
 
-    const BoxEl = screen.getByText("test");
+    const BoxEl = screen.getByText("child");
 
     fireEvent.mouseDown(BoxEl);
     fireEvent.mouseMove(BoxEl);
