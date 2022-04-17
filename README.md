@@ -1,7 +1,8 @@
 # Bear Robotics Frontend Position assignment
 This is Dan Kim's Bear Robotics frontend position conding test Submission.
 
-- contact: danbsns@gmail.com
+## Contact
+danbsns@gmail.com
 
 ## Project Setup
 Basic project setup was done with Create React App v5.0.1
