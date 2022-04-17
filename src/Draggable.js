@@ -56,7 +56,7 @@ function Draggable({ children }) {
 
     handleResize();
 
-    const debounced = debounce(handleResize);
+    const debounced = debounce(handleResize, constants.DEBOUNCE_THRESHOLD);
 
     window.addEventListener("resize", debounced);
 
@@ -123,8 +123,8 @@ function Draggable({ children }) {
       }
 
       setBoxPosition({
-        top: calculatedX,
-        left: calculatedY,
+        top: calculatedY,
+        left: calculatedX,
       });
     }
   }
@@ -134,8 +134,8 @@ function Draggable({ children }) {
       Draggable Area
       <BoundaryDiv ref={containerRef}>
         <WrapperDiv
-          left={boxPosition.top}
-          top={boxPosition.left}
+          top={boxPosition.top}
+          left={boxPosition.left}
           onMouseDown={handleDraggingStart}
           onMouseMove={throttledHandleDragging}
           onMouseUp={handleDraggingEnd}
